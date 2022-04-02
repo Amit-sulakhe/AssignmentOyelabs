@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RegisterEmail</title>
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.css"
+    />
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery.cookie/jquery.cookie.js"></script>
+    <script>
+      $(function () {
+        $("#btnRegister").click(() => {
+          $.ajax({
+            method: "GET",
+            url: "Email.html",
+          }).then((resp) => {
+            $("#bodyContainer").html(resp);
+            $("#btn").click(function () {
+              var data = {
+                email: $("#email").val(),
+                name: $("#name").val(),
+              };
+              $.ajax({
+                method: "POST",
+                url: "http://127.0.0.1:3434/registeremail",
+                data: data,
+              });
+              alert("Registerd succesfully");
+              $.ajax({
+                method: "GET",
+                url: "Succesfull2.html",
+              }).then((resp) => {
+                $("#bodyContainer").html(resp);
+              });
+            });
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-4">
+        <div class="mt-2">
+          <button class="btn btn-dark" id="btnRegister">Register</button>
+        </div>
+      </div>
+      <div class="col-8">
+        <div id="bodyContainer"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+Ans For question no--:4 
+
+[object Object] {
+  email: "ravi11@yopmail.com",
+  gender: "mail",
+  id: 2,
+  name: "ravi"
+}
